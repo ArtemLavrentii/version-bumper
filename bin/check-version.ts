@@ -11,13 +11,14 @@
 //   - Custom file location, custom commit message, multiple files per pero
 //   - Better error messages for common errors ( eg non-existent repo/not adequate permissions )
 //   - Automatic forking of repositories and creation of PR from forked repository when write permission isn't set
+//   - ESLint/Dockerfile/etc, this is more of an example code and not a full project setup
 //   -
 
 import { argv } from 'node:process';
 import semver from 'semver';
 
 import { createGithubProvider } from '../git-providers/github-provider.ts';
-import { checkVersion } from '../check-version.ts';
+import { checkVersion } from '../check-version/index.ts';
 
 if (argv.length !== 6) {
   throw new Error('npm start -- [package] [version] [owner] [repo]\nFor example: npm start -- semver 100.0.0 ArtemLavrentii version-bumper');

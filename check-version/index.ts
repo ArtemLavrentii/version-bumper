@@ -1,7 +1,6 @@
-import type { Repository } from './git-providers/base/Repository.ts';
+import type { Repository } from '../git-providers/base/Repository.ts';
 import semver, { SemVer } from 'semver';
 
-// TODO: Add unit tests
 // TODO: This could be refactored into 3 separate functions
 //  ( Extract data from git, Transform the package.json, Load back into git )
 export async function checkVersion(repo: Repository, packageName: string, packageVersion: SemVer) {
