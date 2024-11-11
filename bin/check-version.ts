@@ -23,7 +23,7 @@ import { GithubProvider } from '../git-providers/github-provider.ts';
 import { checkVersion } from '../check-version.ts';
 
 if (argv.length !== 6) {
-  throw new Error('npm start -- [package] [version] [owner] [repo]\nFor example: npm start -- joi 100.0.0 ArtemLavrentii p-t-task');
+  throw new Error('npm start -- [package] [version] [owner] [repo]\nFor example: npm start -- semver 100.0.0 ArtemLavrentii version-bumper');
 }
 
 const provider = new GithubProvider();
