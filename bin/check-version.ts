@@ -13,20 +13,17 @@
 //   - Automatic forking of repositories and creation of PR from forked repository when write permission isn't set
 //   -
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 import { argv } from 'node:process';
 import semver from 'semver';
 
-import { GithubProvider } from '../git-providers/github-provider.ts';
+import { createGithubProvider } from '../git-providers/github-provider.ts';
 import { checkVersion } from '../check-version.ts';
 
 if (argv.length !== 6) {
   throw new Error('npm start -- [package] [version] [owner] [repo]\nFor example: npm start -- semver 100.0.0 ArtemLavrentii version-bumper');
 }
 
-const provider = new GithubProvider();
+const provider = createGithubProvider();
 
 const [, , packageName, newPackageVersion, ownerName, repoName] = argv;
 

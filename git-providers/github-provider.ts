@@ -141,8 +141,8 @@ export class GithubRepository extends GithubBasicObject implements Repository {
 }
 
 export class GithubProvider extends GithubBasicObject implements Provider {
-  constructor() {
-    super(new Octokit({ auth: env.GITHUB_AUTH }));
+  constructor(api: Octokit) {
+    super(api);
   }
 
   async getRepo(owner: string, repo: string): Promise<Repository> {
@@ -152,4 +152,15 @@ export class GithubProvider extends GithubBasicObject implements Provider {
       (await this.api.rest.repos.get({ owner, repo })).data,
     );
   }
+}
+
+export function createGithubProvider() {
+  const auth = env.GITHUB_AUTH;
+  if (auth === undefined || auth.length <= 6) {
+    throw new Error('Auth is not set');
+  }
+
+  const api = new Octokit({ auth });
+
+  return new GithubProvider(api);
 }

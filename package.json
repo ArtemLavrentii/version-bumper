@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node --experimental-strip-types --experimental-transform-types ./bin/check-version.ts",
+    "start": "node --env-file .env --experimental-strip-types --experimental-transform-types ./bin/check-version.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "octokit": "4.0.2",
-    "dotenv": "16.4.5",
     "semver": "7.6.3"
   },
   "devDependencies": {
