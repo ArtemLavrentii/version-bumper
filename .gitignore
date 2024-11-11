@@ -1,0 +1,12 @@
+# While its recommended to push package-lock there are quite a few security precusions that you should consider before doing that
+package-lock.json
+
+# Used for local testing
+.env
+
+# IDEs
+## JetBrains
+.idea/**
+
+# NodeJS-specific
+node_modules/**
